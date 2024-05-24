@@ -1,6 +1,7 @@
 ---
 import ProjectsMain from '../components/Projects/ProjectsMain.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
 
 const title = 'My Astro Blog';
 const description = 'The perfect starter for your perfect blog.';
@@ -37,6 +38,10 @@ const permalink = Astro.site.href;
     <li>Filtering for both blog posts and projects.</li>
   </ul>
   <button class="btn btn-primary">Button</button>
+  <div>
+    <Icon name="icon--instagram" /> 
+    <p>Content of your blog post...</p>
+  </div>
   <ProjectsMain />
 </BaseLayout>
 

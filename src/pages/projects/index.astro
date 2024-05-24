@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
+import { Icon } from 'astro-icon/components';
 const title = 'Projects';
 const description = 'Latest projects.';
 const permalink = `${Astro.site.href}projects`;
@@ -12,23 +12,54 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
 <BaseLayout title={title} description={description} permalink={permalink} current="projects">
   <div class="container">
     <h1>Projects</h1>
-    {allPosts.map((post, index) => {
-      const href = `/projects/${post.file.split('/').pop().split('.').shift()}`;
-      return (
-        <div>
-          { index !== 0 && <hr /> }
-          <div class="post-item">
-            <h2>
-              <a href={href}>{post.frontmatter.title}</a>
-            </h2>
-            <p>{post.frontmatter.description}</p>
-            <div class="post-item-footer">
-              <span class="post-item-date">— {post.frontmatter.publishDate}</span>
-            </div>
-          </div>
-        </div>
-      )
-    })}
+    <div class="grid gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+  
+  
+
+
+
+
+
+
+
+
+
+{allPosts.map((post, index) => {
+  const href = `/projects/${post.file.split('/').pop().split('.').shift()}`;
+
+  // Assuming your icons are in an array named "icons" within the frontmatter
+  const icons = post.frontmatter.icons || []; // Default to empty array if "icons" is not defined
+
+  return (
+    <div class="relative shadow-md p-5 bg-zinc-900 rounded-md">
+      <a href={href} class="block overflow-hidden group rounded-xl">
+        {/* Rest of your post content */}
+      </a>
+      <div class="relative mt-5">
+        <p class="uppercase font-semibold text-xs mb-2.5 text-white">{post.frontmatter.publishDate}</p>
+                          <h2 class="text-white text-2xl font-bold transition-colors duration-200"><a class="text-white hover:text-white" href={href}>{post.frontmatter.title}</a></h2>
+                      
+        <p class="uppercase font-semibold text-xs mb-2.5 text-white">{post.frontmatter.publishDate}</p>
+        <p class="mb-4 text-white" >{post.frontmatter.description}</p>
+                      <a href={href} class="text-white hover:text-white font-medium underline">Read More</a>
+      </div>
+      {icons.length > 0 && ( // Check if there are any icons before looping
+        <ul class="flex"> {/* Container for icons */}
+          {icons.map((icon, iconIndex) => (
+            <li key={iconIndex}>
+              <img
+                src={`/src/icons/${icon}.svg`} // Assuming icons are SVGs
+                alt={post.frontmatter.title + " Icon " + (iconIndex + 1)}
+                class="h-10 w-10 object-cover" // Adjust size as needed
+              />
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+})}
+      </div>
   </div>
 </BaseLayout>
 
