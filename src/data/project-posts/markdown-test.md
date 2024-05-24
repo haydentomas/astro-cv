@@ -6,6 +6,8 @@ description: A sample page with the most common elements of an article, includin
 icons:
   - icon--javascript
   - icon--twitter
+  - icon--github
+  - icon--youtube
 ---
 
 ![Illustration of woman using a computer receiving likes](/assets/blog/casual-life-3d-likes.webp)

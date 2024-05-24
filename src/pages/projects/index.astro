@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { Icon } from 'astro-icon/components';
 const title = 'Projects';
 const description = 'Latest projects.';
 const permalink = `${Astro.site.href}projects`;
@@ -26,14 +25,11 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
 
 {allPosts.map((post, index) => {
   const href = `/projects/${post.file.split('/').pop().split('.').shift()}`;
-
-  // Assuming your icons are in an array named "icons" within the frontmatter
-  const icons = post.frontmatter.icons || []; // Default to empty array if "icons" is not defined
-
+  const icons = post.frontmatter.icons || []; 
   return (
     <div class="relative shadow-md p-5 bg-zinc-900 rounded-md">
       <a href={href} class="block overflow-hidden group rounded-xl">
-        {/* Rest of your post content */}
+        {}
       </a>
       <div class="relative mt-5">
         <p class="uppercase font-semibold text-xs mb-2.5 text-white">{post.frontmatter.publishDate}</p>
@@ -43,14 +39,14 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
         <p class="mb-4 text-white" >{post.frontmatter.description}</p>
                       <a href={href} class="text-white hover:text-white font-medium underline">Read More</a>
       </div>
-      {icons.length > 0 && ( // Check if there are any icons before looping
-        <ul class="flex"> {/* Container for icons */}
+      {icons.length > 0 && ( 
+        <ul class="flex"> {}
           {icons.map((icon, iconIndex) => (
             <li key={iconIndex}>
               <img
-                src={`/icons/${icon}.svg`} // Assuming icons are SVGs
+                src={`/icons/${icon}.svg`} 
                 alt={post.frontmatter.title + " Icon " + (iconIndex + 1)}
-                class="h-10 w-10 object-cover" // Adjust size as needed
+                class="h-10 w-10 object-cover"
               />
             </li>
           ))}
