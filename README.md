@@ -1,2 +1,5 @@
 # astro-cv
-My Astro CV site
+
+This is my Astro CV website. Built using Astro
+
+Its a huge work in progress! Give me time!
