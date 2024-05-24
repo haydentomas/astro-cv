@@ -44,7 +44,7 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
           {icons.map((icon, iconIndex) => (
             <li key={iconIndex}>
               <img
-                src={`/src/icons/${icon}.svg`} // Assuming icons are SVGs
+                src={`/icons/${icon}.svg`} // Assuming icons are SVGs
                 alt={post.frontmatter.title + " Icon " + (iconIndex + 1)}
                 class="h-10 w-10 object-cover"
               />
