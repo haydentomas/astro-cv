@@ -1,4 +1,5 @@
 ---
+import ProjectsMain from '../components/Projects/ProjectsMain.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'My Astro Blog';
@@ -35,6 +36,8 @@ const permalink = Astro.site.href;
     <li>Pagination, although not on the home page, we will only have 3 here.</li>
     <li>Filtering for both blog posts and projects.</li>
   </ul>
+
+  <ProjectsMain />
 </BaseLayout>
 
 <style>
