@@ -202,11 +202,7 @@ td {
   padding: 0.4em 0.8em;
 }
 
-.container {
-  margin: 0 auto;
-  max-width: 42em;
-  width: 100%;
-}
+
 
 .content h1 {
   font-size: 3em;
